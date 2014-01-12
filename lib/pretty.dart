@@ -40,7 +40,9 @@ String _pretty(Expression expr, int precedence) {
       }
     },
     variable: (x) => x,
-    lambda: (params, body) => "(${params.join(", ")}) => ${_pretty(body, 0)}",
+    lambda: (params, body) {
+      return parens(0, "(${params.join(", ")}) => ${_pretty(body, 0)}");
+    },
     functioncall: (fun, args) {
       final prettyArgs = args.map((a) => _pretty(a, 0));
       return "${_pretty(fun, 15)}(${prettyArgs.join(", ")})";
