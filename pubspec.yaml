@@ -1,0 +1,11 @@
+name: meta_dart
+description: An interpreter for a multi-stage, functional subset of Dart
+dependencies:
+  ace: any
+  browser: any
+  collection: any
+  parsers: any
+  persistent: any
+dev_dependencies:
+  adts:
+    git: https://github.com/polux/adts.git

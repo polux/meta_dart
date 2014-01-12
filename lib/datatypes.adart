@@ -1,0 +1,44 @@
+// Copyright (c) 2014, Google Inc. All rights reserved. Use of this source code
+// is governed by a BSD-style license that can be found in the LICENSE file.
+
+// Author: Paul Brauner (polux@google.com)
+
+library datatypes;
+
+import "package:persistent/persistent.dart";
+
+data ClazzDecl = Clazz(String name,
+                       List<String> fields,
+                       PersistentMap<String, Method> methods)
+
+data MethodDecl = Method(List<String> parameters, Expression body)
+
+data Expression = Self()
+                | ConstructorCall(String constructorName, List<Expression> arguments)
+                | Variable(String name)
+                | Lambda(List<String> parameters, Expression body)
+                | Let(String name, Expression value, Expression body)
+                | FunctionCall(Expression fun, List<Expression> arguments)
+                | GetSend(Expression receiver, String getterName)
+                | Send(Expression receiver, String methodName, List<Expression> arguments)
+                | IfThenElse(Expression condition, Expression thenExpression, Expression elseExpression)
+                | NumLit(num value)
+                | BoolLit(bool value)
+                | StringLit(String value)
+                | NativeFunction(Function native)
+                | Brackets(Expression e)
+                | Escape(Expression e)
+                | Run(Expression e)
+                | Lift(Expression e)
+
+data ProgramDecl = Program(PersistentMap<String, Clazz> clazzes, LetPrintDecl let)
+
+data LetPrintDecl = LetPrint(String name, Expression value, LetPrintDecl body)
+                  | Print(List<Expression> expressions)
+
+data Value = SymbolValue(String x) | RealValue(Expression e)
+
+// internal datastructures for the interpreter
+
+data ExpressionOrMethod = SomeExpression(Expression expression)
+                        | SomeMethod(Method method)

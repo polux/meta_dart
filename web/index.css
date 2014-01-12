@@ -1,0 +1,42 @@
+/**
+Copyright (c) 2014, Google Inc. All rights reserved. Use of this source code
+is governed by a BSD-style license that can be found in the LICENSE file.
+
+Author: Paul Brauner (polux@google.com)
+**/
+
+body {
+  font-family: sans-serif;
+}
+
+h1 {
+  font-size: 1.5em;
+}
+
+#main-container {
+  display: flex;
+}
+
+#buffer-container {
+  flex: 1 0;
+  border: 1px solid black;
+  margin-right: 0.5em;
+}
+
+#buffer { 
+  height: 600px;
+}
+
+#result {
+  flex: 1 0;
+  margin-left: 0.5em;
+  background-color: #f5f5f5;
+  border: 1px solid black;
+  height: 600px;
+  font-family: Monaco, Menlo, 'Ubuntu Mono', Consolas, source-code-pro, monospace;
+  font-size: 16px;
+}
+
+#legal {
+  font-size: 0.8em; 
+}

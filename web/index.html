@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!--
+Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
+for details. All rights reserved. Use of this source code is governed by a
+BSD-style license that can be found in the LICENSE file.
+
+Author: Paul Brauner (polux@google.com)
+-->
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>Multi-Stage Functional Dart</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+  </head>
+ 
+  <body>
+  <h1>Multi-stage functional subset of Dart</h1>
+  <div id="main-container">
+    <div id="buffer-container">
+      <div id="buffer"></div>
+    </div>
+    <textarea contenteditable="false" id="result"></textarea>
+  </div>
+  <p id="legal">
+    The editor uses <a href="https://github.com/rmsmith/ace.dart">ace.dart</a>, 
+    Dart bindings for <a href="http://ace.c9.io/#nav=about">Ace</a>.
+  </p>
+
+  <script type="application/dart" src="index.dart"></script>
+  <script src="packages/browser/dart.js"></script>
+  <script type="text/javascript" src="packages/browser/interop.js"></script>
+  <script type="text/javascript" src="packages/ace/src/js/ace.js"></script>
+  </body>
+</html>
